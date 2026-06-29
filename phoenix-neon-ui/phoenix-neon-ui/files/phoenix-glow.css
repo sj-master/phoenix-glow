@@ -1,0 +1,657 @@
+/* ============================================================
+ * Phoenix Glow UI Kit  (phoenix-glow.css)
+ * © Skyler J. Jones
+ * Multi-Color Neon System
+ * data-phoenix-kit="true" data-phoenix-author="sjones" data-phoenix-version="1.0"
+ *
+ * Two namespaces ship in this file:
+ *   .phoenix-*  — full layout/component system (dark #0a0a0a base, HSL token glows)
+ *   .phx-*      — standalone neon button/card primitives (deep-navy #080E1F base)
+ * They use different palettes by design and are kept separate.
+ *
+ * Keyboard shortcuts (if wired up in your JS):
+ *   G  toggle Glow Booth   |  E  enable/disable glows  |  Esc close
+ *   1 Orange  2 Pink  3 Purple  4 Blue  5 Cyan  6 Green
+ * ============================================================ */
+
+
+/* ============================================================
+ * 1. ROOT TOKENS
+ * ============================================================ */
+
+:root {
+  /* phoenix-* glow colors (HSL channel values, used as hsl(var(--x) / a)) */
+  --phoenix-orange: 12 100% 62%;
+  --phoenix-pink: 330 100% 65%;
+  --phoenix-purple: 270 91% 65%;
+  --phoenix-blue: 200 100% 50%;
+  --phoenix-cyan: 190 100% 55%;
+  --phoenix-green: 142 76% 36%;
+
+  /* phoenix-* surfaces + text */
+  --phoenix-bg: #0a0a0a;
+  --phoenix-bg-soft: #111111;
+  --phoenix-bg-card: #161616;
+  --phoenix-border: rgba(255, 255, 255, 0.08);
+  --phoenix-border-strong: rgba(255, 255, 255, 0.14);
+  --phoenix-text: #ffffff;
+  --phoenix-text-soft: #b5b5b5;
+  --phoenix-text-muted: #8d8d8d;
+
+  /* phx-* primitives palette (separate neon set) */
+  --phx-bg: #080E1F;
+  --phx-pink: #FF008C;
+  --phx-magenta: #FF00FF;
+  --phx-cyan: #00F5FF;
+  --phx-purple: #8A00FF;
+  --phx-green: #00FF99;
+}
+
+
+/* ============================================================
+ * 2. GLOBAL BASE / LAYOUT
+ * ============================================================ */
+
+.phoenix-page {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top, rgba(255, 77, 79, 0.14), transparent 35%),
+    radial-gradient(circle at 80% 20%, rgba(255, 170, 29, 0.08), transparent 25%),
+    var(--phoenix-bg);
+  color: var(--phoenix-text);
+}
+
+.phoenix-container {
+  width: 100%;
+  max-width: 1160px;
+  margin: 0 auto;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
+
+.phoenix-section {
+  padding: 4rem 0;
+}
+
+.phoenix-section-tight {
+  padding: 2.5rem 0;
+}
+
+.phoenix-center {
+  text-align: center;
+}
+
+.phoenix-grid-2,
+.phoenix-grid-3 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .phoenix-grid-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .phoenix-grid-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+
+/* ============================================================
+ * 3. TYPOGRAPHY
+ * ============================================================ */
+
+.phoenix-kicker {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  padding: 0.45rem 0.9rem;
+  background: rgba(255, 77, 79, 0.08);
+  border: 1px solid rgba(255, 77, 79, 0.2);
+  color: #ffb273;
+  font-size: 0.86rem;
+  font-weight: 600;
+}
+
+.phoenix-title-xl {
+  margin: 0;
+  font-size: clamp(2.4rem, 6vw, 5rem);
+  line-height: 1.02;
+  font-weight: 800;
+}
+
+.phoenix-title-lg {
+  margin: 0;
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  line-height: 1.1;
+  font-weight: 800;
+}
+
+.phoenix-title-md {
+  margin: 0;
+  font-size: 1.5rem;
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+.phoenix-copy-lg {
+  color: var(--phoenix-text-soft);
+  font-size: 1.06rem;
+  line-height: 1.7;
+}
+
+.phoenix-copy {
+  color: var(--phoenix-text-soft);
+  line-height: 1.65;
+}
+
+.phoenix-copy-sm {
+  color: var(--phoenix-text-muted);
+  font-size: 0.92rem;
+  line-height: 1.6;
+}
+
+
+/* ============================================================
+ * 4. GLOW ANIMATIONS  (deduplicated — strongest values kept)
+ * ============================================================ */
+
+@keyframes neon-pulse-orange {
+  0%, 100% {
+    box-shadow:
+      0 0 20px hsl(var(--phoenix-orange) / 0.6),
+      0 0 40px hsl(var(--phoenix-orange) / 0.4),
+      0 0 60px hsl(var(--phoenix-orange) / 0.2);
+  }
+  50% {
+    box-shadow:
+      0 0 30px hsl(var(--phoenix-orange) / 0.8),
+      0 0 60px hsl(var(--phoenix-orange) / 0.6),
+      0 0 90px hsl(var(--phoenix-orange) / 0.4);
+  }
+}
+
+@keyframes neon-pulse-pink {
+  0%, 100% {
+    box-shadow:
+      0 0 20px hsl(var(--phoenix-pink) / 0.6),
+      0 0 40px hsl(var(--phoenix-pink) / 0.4),
+      0 0 60px hsl(var(--phoenix-pink) / 0.2);
+  }
+  50% {
+    box-shadow:
+      0 0 30px hsl(var(--phoenix-pink) / 0.8),
+      0 0 60px hsl(var(--phoenix-pink) / 0.6),
+      0 0 90px hsl(var(--phoenix-pink) / 0.4);
+  }
+}
+
+@keyframes neon-pulse-purple {
+  0%, 100% {
+    box-shadow:
+      0 0 20px hsl(var(--phoenix-purple) / 0.6),
+      0 0 40px hsl(var(--phoenix-purple) / 0.4),
+      0 0 60px hsl(var(--phoenix-purple) / 0.2);
+  }
+  50% {
+    box-shadow:
+      0 0 30px hsl(var(--phoenix-purple) / 0.8),
+      0 0 60px hsl(var(--phoenix-purple) / 0.6),
+      0 0 90px hsl(var(--phoenix-purple) / 0.4);
+  }
+}
+
+@keyframes neon-pulse-blue {
+  0%, 100% {
+    box-shadow:
+      0 0 20px hsl(var(--phoenix-blue) / 0.6),
+      0 0 40px hsl(var(--phoenix-blue) / 0.4),
+      0 0 60px hsl(var(--phoenix-blue) / 0.2);
+  }
+  50% {
+    box-shadow:
+      0 0 30px hsl(var(--phoenix-blue) / 0.8),
+      0 0 60px hsl(var(--phoenix-blue) / 0.6),
+      0 0 90px hsl(var(--phoenix-blue) / 0.4);
+  }
+}
+
+@keyframes neon-pulse-cyan {
+  0%, 100% {
+    box-shadow:
+      0 0 20px hsl(var(--phoenix-cyan) / 0.6),
+      0 0 40px hsl(var(--phoenix-cyan) / 0.4),
+      0 0 60px hsl(var(--phoenix-cyan) / 0.2);
+  }
+  50% {
+    box-shadow:
+      0 0 30px hsl(var(--phoenix-cyan) / 0.8),
+      0 0 60px hsl(var(--phoenix-cyan) / 0.6),
+      0 0 90px hsl(var(--phoenix-cyan) / 0.4);
+  }
+}
+
+@keyframes neon-pulse-green {
+  0%, 100% {
+    box-shadow:
+      0 0 20px hsl(var(--phoenix-green) / 0.6),
+      0 0 40px hsl(var(--phoenix-green) / 0.4),
+      0 0 60px hsl(var(--phoenix-green) / 0.2);
+  }
+  50% {
+    box-shadow:
+      0 0 30px hsl(var(--phoenix-green) / 0.8),
+      0 0 60px hsl(var(--phoenix-green) / 0.6),
+      0 0 90px hsl(var(--phoenix-green) / 0.4);
+  }
+}
+
+
+/* ============================================================
+ * 5. GLOW HELPERS + GRADIENT/TITLE TEXT
+ * ============================================================ */
+
+.phoenix-glow-orange { animation: neon-pulse-orange 2s ease-in-out infinite; }
+.phoenix-glow-pink   { animation: neon-pulse-pink   2s ease-in-out infinite; }
+.phoenix-glow-purple { animation: neon-pulse-purple 2s ease-in-out infinite; }
+.phoenix-glow-blue   { animation: neon-pulse-blue   2s ease-in-out infinite; }
+.phoenix-glow-cyan   { animation: neon-pulse-cyan   2s ease-in-out infinite; }
+.phoenix-glow-green  { animation: neon-pulse-green  2s ease-in-out infinite; }
+
+.phoenix-gradient-text {
+  background: linear-gradient(
+    90deg,
+    hsl(var(--phoenix-orange)) 0%,
+    hsl(var(--phoenix-pink)) 20%,
+    hsl(var(--phoenix-purple)) 40%,
+    hsl(var(--phoenix-blue)) 60%,
+    hsl(var(--phoenix-cyan)) 80%,
+    hsl(var(--phoenix-green)) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Static title glow (no animation). */
+.phoenix-title-glow {
+  text-shadow:
+    0 0 20px hsl(var(--phoenix-orange) / 0.45),
+    0 0 40px hsl(var(--phoenix-orange) / 0.24),
+    0 0 60px hsl(var(--phoenix-orange) / 0.12);
+}
+
+/* Animated variant — add alongside .phoenix-title-glow for a pulsing title. */
+.phoenix-title-glow-animated {
+  animation: neon-pulse-orange 2s ease-in-out infinite;
+}
+
+
+/* ============================================================
+ * 6. BUTTONS  (.phoenix-*)
+ * ============================================================ */
+
+.phoenix-glow-btn,
+.phoenix-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.9rem 1.3rem;
+  border: 0;
+  border-radius: 0.9rem;
+  font-weight: 700;
+  color: white;
+  cursor: pointer;
+  text-decoration: none;
+  transition: transform 0.2s ease, filter 0.2s ease, opacity 0.2s ease, border-color 0.2s ease;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+}
+
+.phoenix-glow-btn:hover,
+.phoenix-btn:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.05);
+}
+
+.phoenix-glow-btn:disabled,
+.phoenix-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.phoenix-btn-phoenix { background: linear-gradient(90deg, #ff4d4f 0%, #ffaa1d 100%); }
+.phoenix-btn-purple  { background: linear-gradient(90deg, #7c3aed 0%, #db2777 100%); }
+.phoenix-btn-blue    { background: linear-gradient(90deg, #2563eb 0%, #06b6d4 100%); }
+.phoenix-btn-green   { background: linear-gradient(90deg, #16a34a 0%, #10b981 100%); }
+
+.phoenix-btn-outline {
+  background: transparent;
+  border: 1px solid var(--phoenix-border-strong);
+  color: white;
+  text-shadow: none;
+}
+
+.phoenix-btn-outline:hover {
+  border-color: rgba(255, 77, 79, 0.45);
+  color: #ffb273;
+}
+
+
+/* ============================================================
+ * 7. NAVBAR
+ * ============================================================ */
+
+.phoenix-navbar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(10, 10, 10, 0.8);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(10px);
+}
+
+.phoenix-navbar-container {
+  width: 100%;
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+.phoenix-navbar-row {
+  min-height: 4.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.phoenix-navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.phoenix-navbar-logo {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 0.7rem;
+  background: linear-gradient(135deg, #ff4d4f, #ffaa1d);
+  box-shadow: 0 0 16px rgba(255, 77, 79, 0.4);
+}
+
+.phoenix-navbar-brand-text {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: white;
+}
+
+.phoenix-navbar-desktop {
+  display: none;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.phoenix-navbar-link,
+.phoenix-navbar-link-mobile {
+  color: #b5b5b5;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.phoenix-navbar-link:hover,
+.phoenix-navbar-link-mobile:hover {
+  color: #ff8e8f;
+}
+
+.phoenix-navbar-toggle {
+  background: transparent;
+  border: 0;
+  color: #d2d2d2;
+  font-size: 1.3rem;
+  cursor: pointer;
+}
+
+.phoenix-navbar-mobile {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  padding: 0 0 1rem;
+}
+
+@media (min-width: 768px) {
+  .phoenix-navbar-desktop { display: flex; }
+  .phoenix-navbar-toggle  { display: none; }
+}
+
+
+/* ============================================================
+ * 8. CARDS + PANELS  (.phoenix-*)
+ * ============================================================ */
+
+.phoenix-card,
+.phoenix-panel {
+  background: var(--phoenix-bg-soft);
+  border: 1px solid var(--phoenix-border);
+  border-radius: 1.25rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.22);
+}
+
+.phoenix-card-inner {
+  padding: 1.5rem;
+}
+
+.phoenix-soft-box {
+  background: var(--phoenix-bg-card);
+  border: 1px solid var(--phoenix-border);
+  border-radius: 1rem;
+}
+
+
+/* ============================================================
+ * 9. HERO / LANDING HELPERS
+ * ============================================================ */
+
+.phoenix-hero {
+  padding: 5rem 0 4rem;
+}
+
+.phoenix-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.phoenix-preview-window {
+  max-width: 960px;
+  margin: 0 auto;
+  border-radius: 1.5rem;
+  border: 1px solid var(--phoenix-border);
+  background: var(--phoenix-bg-soft);
+  padding: 1.5rem;
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.3);
+}
+
+.phoenix-preview-dots {
+  display: flex;
+  gap: 0.45rem;
+  margin-bottom: 1rem;
+}
+
+.phoenix-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.phoenix-dot-red    { background: #ff5f57; }
+.phoenix-dot-yellow { background: #febc2e; }
+.phoenix-dot-green  { background: #28c840; }
+
+
+/* ============================================================
+ * 10. FORMS
+ * ============================================================ */
+
+.phoenix-input,
+.phoenix-select {
+  width: 100%;
+  padding: 0.78rem 1rem;
+  border-radius: 0.85rem;
+  border: 1px solid var(--phoenix-border-strong);
+  background: #0f0f0f;
+  color: white;
+  outline: none;
+}
+
+.phoenix-input:focus,
+.phoenix-select:focus {
+  border-color: rgba(255, 77, 79, 0.45);
+  box-shadow: 0 0 0 3px rgba(255, 77, 79, 0.08);
+}
+
+.phoenix-label {
+  display: block;
+  margin-bottom: 0.45rem;
+  color: #d5d5d5;
+  font-size: 0.92rem;
+  font-weight: 600;
+}
+
+.phoenix-help {
+  font-size: 0.82rem;
+  color: var(--phoenix-text-muted);
+}
+
+.phoenix-help-error   { color: #ff7f7f; }
+.phoenix-help-success { color: #74d79d; }
+
+
+/* ============================================================
+ * 11. PREVIEW PACKET HELPERS
+ * ============================================================ */
+
+.phoenix-doc-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.phoenix-doc-section {
+  display: block;
+  margin-bottom: 3rem;
+}
+
+.phoenix-doc-header {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.phoenix-copy-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.75rem 1rem;
+  border-radius: 0.9rem;
+  border: 1px solid var(--phoenix-border);
+  background: #181818;
+  color: white;
+  cursor: pointer;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.phoenix-copy-btn:hover {
+  transform: translateY(-1px);
+  border-color: rgba(255, 77, 79, 0.35);
+}
+
+
+/* ============================================================
+ * 12. PHX-* PRIMITIVES  (standalone neon button/card set)
+ * ============================================================ */
+
+.phx-btn {
+  font-family: inherit;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  padding: 0.7em 1.4em;
+  border-radius: 0.6em;
+  border: 1.5px solid var(--phx-pink);
+  background: transparent;
+  color: var(--phx-pink);
+  cursor: pointer;
+  transition: all 0.18s ease;
+  text-shadow: 0 0 6px var(--phx-pink);
+  box-shadow: 0 0 8px rgba(255, 0, 140, 0.5), inset 0 0 8px rgba(255, 0, 140, 0.15);
+}
+
+.phx-btn:hover {
+  color: #fff;
+  background: var(--phx-pink);
+  box-shadow: 0 0 16px var(--phx-pink), 0 0 32px rgba(255, 0, 140, 0.6);
+}
+
+.phx-btn--cyan        { border-color: var(--phx-cyan);   color: var(--phx-cyan);   text-shadow: 0 0 6px var(--phx-cyan);   box-shadow: 0 0 8px rgba(0, 245, 255, 0.5); }
+.phx-btn--cyan:hover  { background: var(--phx-cyan);   box-shadow: 0 0 16px var(--phx-cyan); }
+.phx-btn--purple      { border-color: var(--phx-purple); color: var(--phx-purple); text-shadow: 0 0 6px var(--phx-purple); box-shadow: 0 0 8px rgba(138, 0, 255, 0.5); }
+.phx-btn--purple:hover{ background: var(--phx-purple); box-shadow: 0 0 16px var(--phx-purple); }
+
+.phx-card {
+  background: var(--phx-bg);
+  border: 1.5px solid var(--phx-purple);
+  border-radius: 1em;
+  padding: 1.5em;
+  color: #fff;
+  box-shadow: 0 0 20px rgba(138, 0, 255, 0.4), inset 0 0 12px rgba(138, 0, 255, 0.1);
+}
+
+
+/* ============================================================
+ * 13. CORE BRANDING HOOKS
+ * ============================================================ */
+
+.phoenix-core {
+  /* Phoenix UI Kit component marker */
+}
+
+[data-phoenix-kit="true"] {
+  /* Verified Phoenix UI component © Skyler J. Jones */
+}
+
+
+/* ============================================================
+ * 14. ACCESSIBILITY — reduced motion
+ * ============================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  .phoenix-glow-orange,
+  .phoenix-glow-pink,
+  .phoenix-glow-purple,
+  .phoenix-glow-blue,
+  .phoenix-glow-cyan,
+  .phoenix-glow-green,
+  .phoenix-title-glow-animated {
+    animation: none;
+  }
+}
+
+
+/* ============================================================
+ * 15. RESPONSIVE OVERRIDES
+ * ============================================================ */
+
+@media (max-width: 767px) {
+  .phoenix-title-xl { font-size: 2.4rem; }
+  .phoenix-title-lg { font-size: 1.9rem; }
+  .phoenix-section  { padding: 3rem 0; }
+  .phoenix-hero     { padding: 3.75rem 0 3rem; }
+}
