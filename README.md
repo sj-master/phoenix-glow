@@ -1,3 +1,6 @@
+# phoenix-glow
+🔥 Phoenix‑Glow UI Components — A neon‑infused, dark‑mode‑native UI kit delivering glowing buttons, inputs, cards, and animations with the signature PHX‑IT aesthetic. Lightweight, customizable, and built for modern frontend stacks.
+
 # Phoenix Glow
 
 A multi-color neon CSS kit: animated glow effects, gradient text, buttons, a sticky navbar, cards, forms, and standalone neon primitives. Pure CSS, no build step, no dependencies.
