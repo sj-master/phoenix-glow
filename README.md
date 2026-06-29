@@ -4,6 +4,10 @@ A multi-color neon UI kit: pure-CSS glow effects, gradient text, layout, and for
 
 © Skyler J. Jones ([sj-master](https://github.com/sj-master)) · MIT licensed
 
+#  View Demo Live
+
+https://phoenix-glow.netlify.app/
+
 ---
 
 ## Install
