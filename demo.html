@@ -1,160 +1,217 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>🐦‍🔥 Phoenix Glow — Live Demo</title>
-<!-- Loads your published CSS straight from the npm CDN -->
-<link rel="stylesheet" href="https://unpkg.com/phoenix-glow/dist/phoenix-glow.css" />
-<style>
-  body { margin: 0; font-family: system-ui, -apple-system, "Segoe UI", sans-serif; }
-  .demo-section { margin-bottom: 3.5rem; }
-  .demo-row { display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; margin-bottom: 1rem; }
-  .demo-label { font-size: .8rem; text-transform: uppercase; letter-spacing: .1em; color: var(--phoenix-text-muted); margin-bottom: .75rem; }
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🐦‍🔥 Phoenix Glow — Live Demo</title>
+  <!-- Loads your published CSS straight from the npm CDN -->
+  <link rel="stylesheet" href="https://unpkg.com/phoenix-glow/dist/phoenix-glow.css" />
+  <style>
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    }
+
+    .demo-section {
+      margin-bottom: 3.5rem;
+    }
+
+    .demo-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+
+    .demo-label {
+      font-size: .8rem;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      color: var(--phoenix-text-muted);
+      margin-bottom: .75rem;
+    }
+  </style>
 </head>
+
 <body>
-<div class="phoenix-page">
-  <!-- NAVBAR -->
-  <nav class="phoenix-navbar">
-    <div class="phoenix-navbar-container">
-      <div class="phoenix-navbar-row">
-        <div class="phoenix-navbar-brand">
-          <div class="phoenix-navbar-logo"></div>
-          <span class="phoenix-navbar-brand-text">Phoenix Glow</span>
-        </div>
-        <div class="phoenix-navbar-desktop">
-          <a class="phoenix-navbar-link" href="https://www.npmjs.com/package/phoenix-glow">npm</a>
-          <a class="phoenix-navbar-link" href="https://github.com/sj-master/phoenix-glow">GitHub</a>
+  <div class="phoenix-page">
+    <!-- NAVBAR -->
+    <nav class="phoenix-navbar">
+      <div class="phoenix-navbar-container">
+        <div class="phoenix-navbar-row">
+          <div class="phoenix-navbar-brand">
+            <div class="phoenix-navbar-logo"></div>
+            <span class="phoenix-navbar-brand-text">Phoenix Glow</span>
+          </div>
+          <div class="phoenix-navbar-desktop">
+            <a class="phoenix-navbar-link" href="https://www.npmjs.com/package/phoenix-glow">npm</a>
+            <a class="phoenix-navbar-link" href="https://github.com/sj-master/phoenix-glow">GitHub</a>
+          </div>
         </div>
       </div>
-    </div>
-  </nav>
+    </nav>
 
-  <!-- HERO -->
-  <section class="phoenix-hero phoenix-center">
+    <!-- HERO -->
+    <section class="phoenix-hero phoenix-center">
+      <div class="phoenix-container">
+        <span class="phoenix-kicker">v1.1.0 · npm install phoenix-glow</span>
+        <h1 class="phoenix-title-xl phoenix-gradient-text">Phoenix Glow</h1>
+        <p class="phoenix-copy-lg">A multi-color neon UI kit that actually glows. 16 components, pure CSS, zero
+          dependencies.</p>
+        <div class="phoenix-hero-actions">
+          <button class="phoenix-btn phoenix-btn-phoenix">Get started</button>
+          <button class="phoenix-btn phoenix-btn-outline">View on GitHub</button>
+        </div>
+      </div>
+    </section>
+
     <div class="phoenix-container">
-      <span class="phoenix-kicker">v1.1.0 · npm install phoenix-glow</span>
-      <h1 class="phoenix-title-xl phoenix-gradient-text">Phoenix Glow</h1>
-      <p class="phoenix-copy-lg">A multi-color neon UI kit that actually glows. 16 components, pure CSS, zero dependencies.</p>
-      <div class="phoenix-hero-actions">
-        <button class="phoenix-btn phoenix-btn-phoenix">Get started</button>
-        <button class="phoenix-btn phoenix-btn-outline">View on GitHub</button>
-      </div>
+
+      <!-- GLOWS -->
+      <section class="demo-section">
+        <h2 class="phoenix-title-md">Animated glows</h2>
+        <div class="phoenix-grid phoenix-grid-3">
+          <div class="phoenix-card phoenix-glow-orange">
+            <div class="phoenix-card-inner">Orange</div>
+          </div>
+          <div class="phoenix-card phoenix-glow-pink">
+            <div class="phoenix-card-inner">Pink</div>
+          </div>
+          <div class="phoenix-card phoenix-glow-purple">
+            <div class="phoenix-card-inner">Purple</div>
+          </div>
+          <div class="phoenix-card phoenix-glow-blue">
+            <div class="phoenix-card-inner">Blue</div>
+          </div>
+          <div class="phoenix-card phoenix-glow-cyan">
+            <div class="phoenix-card-inner">Cyan</div>
+          </div>
+          <div class="phoenix-card phoenix-glow-green">
+            <div class="phoenix-card-inner">Green</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- BUTTONS -->
+      <section class="demo-section">
+        <h2 class="phoenix-title-md">Buttons</h2>
+        <div class="demo-row">
+          <button class="phoenix-btn phoenix-btn-phoenix">Phoenix</button>
+          <button class="phoenix-btn phoenix-btn-purple">Purple</button>
+          <button class="phoenix-btn phoenix-btn-blue">Blue</button>
+          <button class="phoenix-btn phoenix-btn-green">Green</button>
+          <button class="phoenix-btn phoenix-btn-outline">Outline</button>
+        </div>
+        <div class="demo-row">
+          <button class="phoenix-btn phoenix-btn-phoenix phoenix-glow-orange">Glowing</button>
+          <button class="phx-btn">phx-btn</button>
+          <button class="phx-btn phx-btn--cyan">cyan</button>
+          <button class="phx-btn phx-btn--purple">purple</button>
+        </div>
+      </section>
+
+      <!-- BADGES + AVATARS -->
+      <section class="demo-section">
+        <h2 class="phoenix-title-md">Badges &amp; Avatars</h2>
+        <div class="demo-row">
+          <span class="phoenix-badge phoenix-badge-primary phoenix-badge-md">Primary</span>
+          <span class="phoenix-badge phoenix-badge-green phoenix-badge-md">Success</span>
+          <span class="phoenix-badge phoenix-badge-yellow phoenix-badge-md">Warning</span>
+          <span class="phoenix-badge phoenix-badge-red phoenix-badge-md">Error</span>
+          <span class="phoenix-badge phoenix-badge-purple phoenix-badge-md">Purple</span>
+          <span class="phoenix-badge phoenix-badge-blue phoenix-badge-md">Blue</span>
+        </div>
+        <div class="demo-row">
+          <div class="phoenix-avatar phoenix-avatar-sm phoenix-avatar-gradient">SJ</div>
+          <div class="phoenix-avatar phoenix-avatar-md phoenix-avatar-gradient">SJ</div>
+          <div class="phoenix-avatar phoenix-avatar-lg phoenix-avatar-gradient">SJ</div>
+          <div class="phoenix-avatar phoenix-avatar-xl phoenix-avatar-gradient">SJ</div>
+        </div>
+      </section>
+
+      <!-- FORMS -->
+      <section class="demo-section">
+        <h2 class="phoenix-title-md">Forms</h2>
+        <div class="phoenix-grid phoenix-grid-2">
+          <div>
+            <label class="phoenix-label">Email</label>
+            <input class="phoenix-input" placeholder="you@example.com" />
+            <span class="phoenix-help">We'll never share it.</span>
+          </div>
+          <div>
+            <label class="phoenix-label">Plan</label>
+            <select class="phoenix-select">
+              <option>Free</option>
+              <option>Pro</option>
+            </select>
+            <span class="phoenix-help-success">Looks good!</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- PROGRESS + SPINNER + SKELETON -->
+      <section class="demo-section">
+        <h2 class="phoenix-title-md">Feedback</h2>
+        <div class="demo-row">
+          <span class="phoenix-spinner-ring phoenix-spinner-md phoenix-spinner-phoenix"></span>
+          <span class="phoenix-spinner-ring phoenix-spinner-md phoenix-spinner-cyan"></span>
+          <span class="phoenix-spinner-ring phoenix-spinner-md phoenix-spinner-purple"></span>
+          <span class="phoenix-spinner-ring phoenix-spinner-md phoenix-spinner-green"></span>
+        </div>
+        <div class="phoenix-progress" style="margin:1rem 0;">
+          <div class="phoenix-progress-track">
+            <div class="phoenix-progress-bar phoenix-progress-phoenix" style="width:72%"></div>
+          </div><span class="phoenix-progress-label">72%</span>
+        </div>
+        <span class="phoenix-skeleton" style="width:100%;height:1rem;border-radius:.5rem;"></span>
+      </section>
+
+      <!-- ACCORDION -->
+      <section class="demo-section">
+        <h2 class="phoenix-title-md">Accordion</h2>
+        <div class="phoenix-accordion">
+          <div class="phoenix-accordion-item is-open">
+            <button class="phoenix-accordion-trigger"><span>What is Phoenix Glow?</span><span
+                class="phoenix-accordion-chevron">▾</span></button>
+            <div class="phoenix-accordion-content">A neon UI kit by sj-master — CSS plus 16 React components.</div>
+          </div>
+          <div class="phoenix-accordion-item">
+            <button class="phoenix-accordion-trigger"><span>Does it need Tailwind?</span><span
+                class="phoenix-accordion-chevron">▾</span></button>
+            <div class="phoenix-accordion-content">No. Pure CSS, no dependencies.</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ALERTS -->
+      <section class="demo-section">
+        <h2 class="phoenix-title-md">Alerts</h2>
+        <div class="phoenix-alert phoenix-alert-info">
+          <div class="phoenix-alert-title">Info</div>
+          <div class="phoenix-alert-body">Something informative.</div>
+        </div>
+        <div class="phoenix-alert phoenix-alert-success">
+          <div class="phoenix-alert-title">Success</div>
+          <div class="phoenix-alert-body">It worked.</div>
+        </div>
+        <div class="phoenix-alert phoenix-alert-warning">
+          <div class="phoenix-alert-title">Warning</div>
+          <div class="phoenix-alert-body">Be careful.</div>
+        </div>
+        <div class="phoenix-alert phoenix-alert-error">
+          <div class="phoenix-alert-title">Error</div>
+          <div class="phoenix-alert-body">Something broke.</div>
+        </div>
+      </section>
+
+      <footer class="phoenix-section phoenix-center">
+        <p class="phoenix-copy-sm">Phoenix Glow © Skyler J. Jones (sj-master) · MIT</p>
+      </footer>
+
     </div>
-  </section>
-
-  <div class="phoenix-container">
-
-    <!-- GLOWS -->
-    <section class="demo-section">
-      <h2 class="phoenix-title-md">Animated glows</h2>
-      <div class="phoenix-grid phoenix-grid-3">
-        <div class="phoenix-card phoenix-glow-orange"><div class="phoenix-card-inner">Orange</div></div>
-        <div class="phoenix-card phoenix-glow-pink"><div class="phoenix-card-inner">Pink</div></div>
-        <div class="phoenix-card phoenix-glow-purple"><div class="phoenix-card-inner">Purple</div></div>
-        <div class="phoenix-card phoenix-glow-blue"><div class="phoenix-card-inner">Blue</div></div>
-        <div class="phoenix-card phoenix-glow-cyan"><div class="phoenix-card-inner">Cyan</div></div>
-        <div class="phoenix-card phoenix-glow-green"><div class="phoenix-card-inner">Green</div></div>
-      </div>
-    </section>
-
-    <!-- BUTTONS -->
-    <section class="demo-section">
-      <h2 class="phoenix-title-md">Buttons</h2>
-      <div class="demo-row">
-        <button class="phoenix-btn phoenix-btn-phoenix">Phoenix</button>
-        <button class="phoenix-btn phoenix-btn-purple">Purple</button>
-        <button class="phoenix-btn phoenix-btn-blue">Blue</button>
-        <button class="phoenix-btn phoenix-btn-green">Green</button>
-        <button class="phoenix-btn phoenix-btn-outline">Outline</button>
-      </div>
-      <div class="demo-row">
-        <button class="phoenix-btn phoenix-btn-phoenix phoenix-glow-orange">Glowing</button>
-        <button class="phx-btn">phx-btn</button>
-        <button class="phx-btn phx-btn--cyan">cyan</button>
-        <button class="phx-btn phx-btn--purple">purple</button>
-      </div>
-    </section>
-
-    <!-- BADGES + AVATARS -->
-    <section class="demo-section">
-      <h2 class="phoenix-title-md">Badges &amp; Avatars</h2>
-      <div class="demo-row">
-        <span class="phoenix-badge phoenix-badge-primary phoenix-badge-md">Primary</span>
-        <span class="phoenix-badge phoenix-badge-green phoenix-badge-md">Success</span>
-        <span class="phoenix-badge phoenix-badge-yellow phoenix-badge-md">Warning</span>
-        <span class="phoenix-badge phoenix-badge-red phoenix-badge-md">Error</span>
-        <span class="phoenix-badge phoenix-badge-purple phoenix-badge-md">Purple</span>
-        <span class="phoenix-badge phoenix-badge-blue phoenix-badge-md">Blue</span>
-      </div>
-      <div class="demo-row">
-        <div class="phoenix-avatar phoenix-avatar-sm phoenix-avatar-gradient">SJ</div>
-        <div class="phoenix-avatar phoenix-avatar-md phoenix-avatar-gradient">SJ</div>
-        <div class="phoenix-avatar phoenix-avatar-lg phoenix-avatar-gradient">SJ</div>
-        <div class="phoenix-avatar phoenix-avatar-xl phoenix-avatar-gradient">SJ</div>
-      </div>
-    </section>
-
-    <!-- FORMS -->
-    <section class="demo-section">
-      <h2 class="phoenix-title-md">Forms</h2>
-      <div class="phoenix-grid phoenix-grid-2">
-        <div>
-          <label class="phoenix-label">Email</label>
-          <input class="phoenix-input" placeholder="you@example.com" />
-          <span class="phoenix-help">We'll never share it.</span>
-        </div>
-        <div>
-          <label class="phoenix-label">Plan</label>
-          <select class="phoenix-select"><option>Free</option><option>Pro</option></select>
-          <span class="phoenix-help-success">Looks good!</span>
-        </div>
-      </div>
-    </section>
-
-    <!-- PROGRESS + SPINNER + SKELETON -->
-    <section class="demo-section">
-      <h2 class="phoenix-title-md">Feedback</h2>
-      <div class="demo-row">
-        <span class="phoenix-spinner-ring phoenix-spinner-md phoenix-spinner-phoenix"></span>
-        <span class="phoenix-spinner-ring phoenix-spinner-md phoenix-spinner-cyan"></span>
-        <span class="phoenix-spinner-ring phoenix-spinner-md phoenix-spinner-purple"></span>
-        <span class="phoenix-spinner-ring phoenix-spinner-md phoenix-spinner-green"></span>
-      </div>
-      <div class="phoenix-progress" style="margin:1rem 0;"><div class="phoenix-progress-track"><div class="phoenix-progress-bar phoenix-progress-phoenix" style="width:72%"></div></div><span class="phoenix-progress-label">72%</span></div>
-      <span class="phoenix-skeleton" style="width:100%;height:1rem;border-radius:.5rem;"></span>
-    </section>
-
-    <!-- ACCORDION -->
-    <section class="demo-section">
-      <h2 class="phoenix-title-md">Accordion</h2>
-      <div class="phoenix-accordion">
-        <div class="phoenix-accordion-item is-open">
-          <button class="phoenix-accordion-trigger"><span>What is Phoenix Glow?</span><span class="phoenix-accordion-chevron">▾</span></button>
-          <div class="phoenix-accordion-content">A neon UI kit by sj-master — CSS plus 16 React components.</div>
-        </div>
-        <div class="phoenix-accordion-item">
-          <button class="phoenix-accordion-trigger"><span>Does it need Tailwind?</span><span class="phoenix-accordion-chevron">▾</span></button>
-          <div class="phoenix-accordion-content">No. Pure CSS, no dependencies.</div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ALERTS -->
-    <section class="demo-section">
-      <h2 class="phoenix-title-md">Alerts</h2>
-      <div class="phoenix-alert phoenix-alert-info"><div class="phoenix-alert-title">Info</div><div class="phoenix-alert-body">Something informative.</div></div>
-      <div class="phoenix-alert phoenix-alert-success"><div class="phoenix-alert-title">Success</div><div class="phoenix-alert-body">It worked.</div></div>
-      <div class="phoenix-alert phoenix-alert-warning"><div class="phoenix-alert-title">Warning</div><div class="phoenix-alert-body">Be careful.</div></div>
-      <div class="phoenix-alert phoenix-alert-error"><div class="phoenix-alert-title">Error</div><div class="phoenix-alert-body">Something broke.</div></div>
-    </section>
-
-    <footer class="phoenix-section phoenix-center">
-      <p class="phoenix-copy-sm">Phoenix Glow © Skyler J. Jones (sj-master) · MIT</p>
-    </footer>
-
   </div>
-</div>
 </body>
+
 </html>
