@@ -1,26 +1,12 @@
-/* ============================================================
- * Phoenix Glow UI Kit  (phoenix-glow.css)
- * © Skyler J. Jones
- * Multi-Color Neon System
- * data-phoenix-kit="true" data-phoenix-author="sjones" data-phoenix-version="1.0"
- *
- * Two namespaces ship in this file:
- *   .phoenix-*  — full layout/component system (dark #0a0a0a base, HSL token glows)
- *   .phx-*      — standalone neon button/card primitives (deep-navy #080E1F base)
- * They use different palettes by design and are kept separate.
- *
- * Keyboard shortcuts (if wired up in your JS):
- *   G  toggle Glow Booth   |  E  enable/disable glows  |  Esc close
- *   1 Orange  2 Pink  3 Purple  4 Blue  5 Cyan  6 Green
- * ============================================================ */
+/* Phoenix UI Kit © Skyler J. Jones */
+/* Phoenix Glow Effects - Multi-Color Neon System */
+/* data-phoenix-kit="true" data-phoenix-author="sjones" data-phoenix-version="1.0" */
 
-
-/* ============================================================
- * 1. ROOT TOKENS
- * ============================================================ */
+/* ============================================ */
+/* ROOT TOKENS */
+/* ============================================ */
 
 :root {
-  /* phoenix-* glow colors (HSL channel values, used as hsl(var(--x) / a)) */
   --phoenix-orange: 12 100% 62%;
   --phoenix-pink: 330 100% 65%;
   --phoenix-purple: 270 91% 65%;
@@ -28,7 +14,6 @@
   --phoenix-cyan: 190 100% 55%;
   --phoenix-green: 142 76% 36%;
 
-  /* phoenix-* surfaces + text */
   --phoenix-bg: #0a0a0a;
   --phoenix-bg-soft: #111111;
   --phoenix-bg-card: #161616;
@@ -37,20 +22,11 @@
   --phoenix-text: #ffffff;
   --phoenix-text-soft: #b5b5b5;
   --phoenix-text-muted: #8d8d8d;
-
-  /* phx-* primitives palette (separate neon set) */
-  --phx-bg: #080E1F;
-  --phx-pink: #FF008C;
-  --phx-magenta: #FF00FF;
-  --phx-cyan: #00F5FF;
-  --phx-purple: #8A00FF;
-  --phx-green: #00FF99;
 }
 
-
-/* ============================================================
- * 2. GLOBAL BASE / LAYOUT
- * ============================================================ */
+/* ============================================ */
+/* GLOBAL BASE */
+/* ============================================ */
 
 .phoenix-page {
   min-height: 100vh;
@@ -81,7 +57,12 @@
   text-align: center;
 }
 
-.phoenix-grid-2,
+.phoenix-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
 .phoenix-grid-3 {
   display: grid;
   grid-template-columns: 1fr;
@@ -98,10 +79,9 @@
   }
 }
 
-
-/* ============================================================
- * 3. TYPOGRAPHY
- * ============================================================ */
+/* ============================================ */
+/* TYPOGRAPHY */
+/* ============================================ */
 
 .phoenix-kicker {
   display: inline-flex;
@@ -153,23 +133,22 @@
   line-height: 1.6;
 }
 
-
-/* ============================================================
- * 4. GLOW ANIMATIONS  (deduplicated — strongest values kept)
- * ============================================================ */
+/* ============================================ */
+/* GLOW ANIMATIONS */
+/* ============================================ */
 
 @keyframes neon-pulse-orange {
   0%, 100% {
     box-shadow:
       0 0 20px hsl(var(--phoenix-orange) / 0.6),
-      0 0 40px hsl(var(--phoenix-orange) / 0.4),
-      0 0 60px hsl(var(--phoenix-orange) / 0.2);
+      0 0 40px hsl(var(--phoenix-orange) / 0.35),
+      0 0 60px hsl(var(--phoenix-orange) / 0.18);
   }
   50% {
     box-shadow:
       0 0 30px hsl(var(--phoenix-orange) / 0.8),
-      0 0 60px hsl(var(--phoenix-orange) / 0.6),
-      0 0 90px hsl(var(--phoenix-orange) / 0.4);
+      0 0 60px hsl(var(--phoenix-orange) / 0.5),
+      0 0 90px hsl(var(--phoenix-orange) / 0.3);
   }
 }
 
@@ -177,14 +156,14 @@
   0%, 100% {
     box-shadow:
       0 0 20px hsl(var(--phoenix-pink) / 0.6),
-      0 0 40px hsl(var(--phoenix-pink) / 0.4),
-      0 0 60px hsl(var(--phoenix-pink) / 0.2);
+      0 0 40px hsl(var(--phoenix-pink) / 0.35),
+      0 0 60px hsl(var(--phoenix-pink) / 0.18);
   }
   50% {
     box-shadow:
       0 0 30px hsl(var(--phoenix-pink) / 0.8),
-      0 0 60px hsl(var(--phoenix-pink) / 0.6),
-      0 0 90px hsl(var(--phoenix-pink) / 0.4);
+      0 0 60px hsl(var(--phoenix-pink) / 0.5),
+      0 0 90px hsl(var(--phoenix-pink) / 0.3);
   }
 }
 
@@ -192,14 +171,14 @@
   0%, 100% {
     box-shadow:
       0 0 20px hsl(var(--phoenix-purple) / 0.6),
-      0 0 40px hsl(var(--phoenix-purple) / 0.4),
-      0 0 60px hsl(var(--phoenix-purple) / 0.2);
+      0 0 40px hsl(var(--phoenix-purple) / 0.35),
+      0 0 60px hsl(var(--phoenix-purple) / 0.18);
   }
   50% {
     box-shadow:
       0 0 30px hsl(var(--phoenix-purple) / 0.8),
-      0 0 60px hsl(var(--phoenix-purple) / 0.6),
-      0 0 90px hsl(var(--phoenix-purple) / 0.4);
+      0 0 60px hsl(var(--phoenix-purple) / 0.5),
+      0 0 90px hsl(var(--phoenix-purple) / 0.3);
   }
 }
 
@@ -207,14 +186,14 @@
   0%, 100% {
     box-shadow:
       0 0 20px hsl(var(--phoenix-blue) / 0.6),
-      0 0 40px hsl(var(--phoenix-blue) / 0.4),
-      0 0 60px hsl(var(--phoenix-blue) / 0.2);
+      0 0 40px hsl(var(--phoenix-blue) / 0.35),
+      0 0 60px hsl(var(--phoenix-blue) / 0.18);
   }
   50% {
     box-shadow:
       0 0 30px hsl(var(--phoenix-blue) / 0.8),
-      0 0 60px hsl(var(--phoenix-blue) / 0.6),
-      0 0 90px hsl(var(--phoenix-blue) / 0.4);
+      0 0 60px hsl(var(--phoenix-blue) / 0.5),
+      0 0 90px hsl(var(--phoenix-blue) / 0.3);
   }
 }
 
@@ -222,14 +201,14 @@
   0%, 100% {
     box-shadow:
       0 0 20px hsl(var(--phoenix-cyan) / 0.6),
-      0 0 40px hsl(var(--phoenix-cyan) / 0.4),
-      0 0 60px hsl(var(--phoenix-cyan) / 0.2);
+      0 0 40px hsl(var(--phoenix-cyan) / 0.35),
+      0 0 60px hsl(var(--phoenix-cyan) / 0.18);
   }
   50% {
     box-shadow:
       0 0 30px hsl(var(--phoenix-cyan) / 0.8),
-      0 0 60px hsl(var(--phoenix-cyan) / 0.6),
-      0 0 90px hsl(var(--phoenix-cyan) / 0.4);
+      0 0 60px hsl(var(--phoenix-cyan) / 0.5),
+      0 0 90px hsl(var(--phoenix-cyan) / 0.3);
   }
 }
 
@@ -237,28 +216,44 @@
   0%, 100% {
     box-shadow:
       0 0 20px hsl(var(--phoenix-green) / 0.6),
-      0 0 40px hsl(var(--phoenix-green) / 0.4),
-      0 0 60px hsl(var(--phoenix-green) / 0.2);
+      0 0 40px hsl(var(--phoenix-green) / 0.35),
+      0 0 60px hsl(var(--phoenix-green) / 0.18);
   }
   50% {
     box-shadow:
       0 0 30px hsl(var(--phoenix-green) / 0.8),
-      0 0 60px hsl(var(--phoenix-green) / 0.6),
-      0 0 90px hsl(var(--phoenix-green) / 0.4);
+      0 0 60px hsl(var(--phoenix-green) / 0.5),
+      0 0 90px hsl(var(--phoenix-green) / 0.3);
   }
 }
 
+/* ============================================ */
+/* GLOW HELPERS */
+/* ============================================ */
 
-/* ============================================================
- * 5. GLOW HELPERS + GRADIENT/TITLE TEXT
- * ============================================================ */
+.phoenix-glow-orange {
+  animation: neon-pulse-orange 2s ease-in-out infinite;
+}
 
-.phoenix-glow-orange { animation: neon-pulse-orange 2s ease-in-out infinite; }
-.phoenix-glow-pink   { animation: neon-pulse-pink   2s ease-in-out infinite; }
-.phoenix-glow-purple { animation: neon-pulse-purple 2s ease-in-out infinite; }
-.phoenix-glow-blue   { animation: neon-pulse-blue   2s ease-in-out infinite; }
-.phoenix-glow-cyan   { animation: neon-pulse-cyan   2s ease-in-out infinite; }
-.phoenix-glow-green  { animation: neon-pulse-green  2s ease-in-out infinite; }
+.phoenix-glow-pink {
+  animation: neon-pulse-pink 2s ease-in-out infinite;
+}
+
+.phoenix-glow-purple {
+  animation: neon-pulse-purple 2s ease-in-out infinite;
+}
+
+.phoenix-glow-blue {
+  animation: neon-pulse-blue 2s ease-in-out infinite;
+}
+
+.phoenix-glow-cyan {
+  animation: neon-pulse-cyan 2s ease-in-out infinite;
+}
+
+.phoenix-glow-green {
+  animation: neon-pulse-green 2s ease-in-out infinite;
+}
 
 .phoenix-gradient-text {
   background: linear-gradient(
@@ -275,7 +270,6 @@
   background-clip: text;
 }
 
-/* Static title glow (no animation). */
 .phoenix-title-glow {
   text-shadow:
     0 0 20px hsl(var(--phoenix-orange) / 0.45),
@@ -283,15 +277,9 @@
     0 0 60px hsl(var(--phoenix-orange) / 0.12);
 }
 
-/* Animated variant — add alongside .phoenix-title-glow for a pulsing title. */
-.phoenix-title-glow-animated {
-  animation: neon-pulse-orange 2s ease-in-out infinite;
-}
-
-
-/* ============================================================
- * 6. BUTTONS  (.phoenix-*)
- * ============================================================ */
+/* ============================================ */
+/* BUTTONS */
+/* ============================================ */
 
 .phoenix-glow-btn,
 .phoenix-btn {
@@ -322,10 +310,21 @@
   cursor: not-allowed;
 }
 
-.phoenix-btn-phoenix { background: linear-gradient(90deg, #ff4d4f 0%, #ffaa1d 100%); }
-.phoenix-btn-purple  { background: linear-gradient(90deg, #7c3aed 0%, #db2777 100%); }
-.phoenix-btn-blue    { background: linear-gradient(90deg, #2563eb 0%, #06b6d4 100%); }
-.phoenix-btn-green   { background: linear-gradient(90deg, #16a34a 0%, #10b981 100%); }
+.phoenix-btn-phoenix {
+  background: linear-gradient(90deg, #ff4d4f 0%, #ffaa1d 100%);
+}
+
+.phoenix-btn-purple {
+  background: linear-gradient(90deg, #7c3aed 0%, #db2777 100%);
+}
+
+.phoenix-btn-blue {
+  background: linear-gradient(90deg, #2563eb 0%, #06b6d4 100%);
+}
+
+.phoenix-btn-green {
+  background: linear-gradient(90deg, #16a34a 0%, #10b981 100%);
+}
 
 .phoenix-btn-outline {
   background: transparent;
@@ -339,10 +338,9 @@
   color: #ffb273;
 }
 
-
-/* ============================================================
- * 7. NAVBAR
- * ============================================================ */
+/* ============================================ */
+/* NAVBAR */
+/* ============================================ */
 
 .phoenix-navbar {
   position: sticky;
@@ -422,14 +420,18 @@
 }
 
 @media (min-width: 768px) {
-  .phoenix-navbar-desktop { display: flex; }
-  .phoenix-navbar-toggle  { display: none; }
+  .phoenix-navbar-desktop {
+    display: flex;
+  }
+
+  .phoenix-navbar-toggle {
+    display: none;
+  }
 }
 
-
-/* ============================================================
- * 8. CARDS + PANELS  (.phoenix-*)
- * ============================================================ */
+/* ============================================ */
+/* CARDS + PANELS */
+/* ============================================ */
 
 .phoenix-card,
 .phoenix-panel {
@@ -449,10 +451,9 @@
   border-radius: 1rem;
 }
 
-
-/* ============================================================
- * 9. HERO / LANDING HELPERS
- * ============================================================ */
+/* ============================================ */
+/* HERO / LANDING HELPERS */
+/* ============================================ */
 
 .phoenix-hero {
   padding: 5rem 0 4rem;
@@ -487,14 +488,13 @@
   border-radius: 50%;
 }
 
-.phoenix-dot-red    { background: #ff5f57; }
+.phoenix-dot-red { background: #ff5f57; }
 .phoenix-dot-yellow { background: #febc2e; }
-.phoenix-dot-green  { background: #28c840; }
+.phoenix-dot-green { background: #28c840; }
 
-
-/* ============================================================
- * 10. FORMS
- * ============================================================ */
+/* ============================================ */
+/* FORMS */
+/* ============================================ */
 
 .phoenix-input,
 .phoenix-select {
@@ -526,13 +526,17 @@
   color: var(--phoenix-text-muted);
 }
 
-.phoenix-help-error   { color: #ff7f7f; }
-.phoenix-help-success { color: #74d79d; }
+.phoenix-help-error {
+  color: #ff7f7f;
+}
 
+.phoenix-help-success {
+  color: #74d79d;
+}
 
-/* ============================================================
- * 11. PREVIEW PACKET HELPERS
- * ============================================================ */
+/* ============================================ */
+/* PREVIEW PACKET HELPERS */
+/* ============================================ */
 
 .phoenix-doc-toolbar {
   display: flex;
@@ -574,84 +578,217 @@
   border-color: rgba(255, 77, 79, 0.35);
 }
 
+/* ============================================ */
+/* RESPONSIVE */
+/* ============================================ */
 
-/* ============================================================
- * 12. PHX-* PRIMITIVES  (standalone neon button/card set)
- * ============================================================ */
+@media (max-width: 767px) {
+  .phoenix-title-xl {
+    font-size: 2.4rem;
+  }
 
-.phx-btn {
-  font-family: inherit;
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  padding: 0.7em 1.4em;
-  border-radius: 0.6em;
-  border: 1.5px solid var(--phx-pink);
-  background: transparent;
-  color: var(--phx-pink);
-  cursor: pointer;
-  transition: all 0.18s ease;
-  text-shadow: 0 0 6px var(--phx-pink);
-  box-shadow: 0 0 8px rgba(255, 0, 140, 0.5), inset 0 0 8px rgba(255, 0, 140, 0.15);
-}
+  .phoenix-title-lg {
+    font-size: 1.9rem;
+  }
 
-.phx-btn:hover {
-  color: #fff;
-  background: var(--phx-pink);
-  box-shadow: 0 0 16px var(--phx-pink), 0 0 32px rgba(255, 0, 140, 0.6);
-}
+  .phoenix-section {
+    padding: 3rem 0;
+  }
 
-.phx-btn--cyan        { border-color: var(--phx-cyan);   color: var(--phx-cyan);   text-shadow: 0 0 6px var(--phx-cyan);   box-shadow: 0 0 8px rgba(0, 245, 255, 0.5); }
-.phx-btn--cyan:hover  { background: var(--phx-cyan);   box-shadow: 0 0 16px var(--phx-cyan); }
-.phx-btn--purple      { border-color: var(--phx-purple); color: var(--phx-purple); text-shadow: 0 0 6px var(--phx-purple); box-shadow: 0 0 8px rgba(138, 0, 255, 0.5); }
-.phx-btn--purple:hover{ background: var(--phx-purple); box-shadow: 0 0 16px var(--phx-purple); }
-
-.phx-card {
-  background: var(--phx-bg);
-  border: 1.5px solid var(--phx-purple);
-  border-radius: 1em;
-  padding: 1.5em;
-  color: #fff;
-  box-shadow: 0 0 20px rgba(138, 0, 255, 0.4), inset 0 0 12px rgba(138, 0, 255, 0.1);
-}
-
-
-/* ============================================================
- * 13. CORE BRANDING HOOKS
- * ============================================================ */
-
-.phoenix-core {
-  /* Phoenix UI Kit component marker */
-}
-
-[data-phoenix-kit="true"] {
-  /* Verified Phoenix UI component © Skyler J. Jones */
-}
-
-
-/* ============================================================
- * 14. ACCESSIBILITY — reduced motion
- * ============================================================ */
-
-@media (prefers-reduced-motion: reduce) {
-  .phoenix-glow-orange,
-  .phoenix-glow-pink,
-  .phoenix-glow-purple,
-  .phoenix-glow-blue,
-  .phoenix-glow-cyan,
-  .phoenix-glow-green,
-  .phoenix-title-glow-animated {
-    animation: none;
+  .phoenix-hero {
+    padding: 3.75rem 0 3rem;
   }
 }
 
+/* ============================================ */
+/* PHOENIX CORE BRANDING */
+/* ============================================ */
 
-/* ============================================================
- * 15. RESPONSIVE OVERRIDES
- * ============================================================ */
+.phoenix-core {
+  /* Phoenix UI Kit Component */
+}
 
-@media (max-width: 767px) {
-  .phoenix-title-xl { font-size: 2.4rem; }
-  .phoenix-title-lg { font-size: 1.9rem; }
-  .phoenix-section  { padding: 3rem 0; }
-  .phoenix-hero     { padding: 3.75rem 0 3rem; }
+[data-phoenix-kit="true"] {
+  /* Verified Phoenix UI Component © Skyler J. Jones */
+}
+/* ============================================ */
+/* COMPONENT STYLES (for React components)      */
+/* ============================================ */
+
+/* --- Avatar --- */
+.phoenix-avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  overflow: hidden;
+  color: #fff;
+  font-weight: 600;
+}
+.phoenix-avatar-img { width: 100%; height: 100%; object-fit: cover; }
+.phoenix-avatar-gradient { background: linear-gradient(135deg, #FF4D4F, #FFAA1D); }
+.phoenix-avatar-default  { background: #4b5563; }
+.phoenix-avatar-sm { width: 2rem;  height: 2rem;  font-size: 0.75rem; }
+.phoenix-avatar-md { width: 3rem;  height: 3rem;  font-size: 0.875rem; }
+.phoenix-avatar-lg { width: 4rem;  height: 4rem;  font-size: 1rem; }
+.phoenix-avatar-xl { width: 5rem;  height: 5rem;  font-size: 1.125rem; }
+
+/* --- Badge --- */
+.phoenix-badge {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 0.375rem;
+  border: 1px solid transparent;
+  font-weight: 600;
+  line-height: 1;
+}
+.phoenix-badge-sm { font-size: 0.75rem;  padding: 0.125rem 0.5rem; }
+.phoenix-badge-md { font-size: 0.875rem; padding: 0.125rem 0.625rem; }
+.phoenix-badge-lg { font-size: 1rem;     padding: 0.25rem 0.75rem; }
+.phoenix-badge-primary { background: rgba(255,77,79,0.1);  color: #FF4D4F; border-color: rgba(255,77,79,0.2); }
+.phoenix-badge-green   { background: rgba(34,197,94,0.1);  color: #4ade80; border-color: rgba(34,197,94,0.2); }
+.phoenix-badge-yellow  { background: rgba(234,179,8,0.1);  color: #facc15; border-color: rgba(234,179,8,0.2); }
+.phoenix-badge-red     { background: rgba(239,68,68,0.1);  color: #f87171; border-color: rgba(239,68,68,0.2); }
+.phoenix-badge-purple  { background: rgba(168,85,247,0.1); color: #c084fc; border-color: rgba(168,85,247,0.2); }
+.phoenix-badge-blue    { background: rgba(59,130,246,0.1); color: #60a5fa; border-color: rgba(59,130,246,0.2); }
+
+/* --- Button spinner --- */
+.phoenix-spinner {
+  width: 1rem;
+  height: 1rem;
+  margin-right: 0.5rem;
+  animation: phoenix-spin 0.8s linear infinite;
+}
+@keyframes phoenix-spin { to { transform: rotate(360deg); } }
+
+/* --- Button secondary (pairs with existing .phoenix-btn) --- */
+.phoenix-btn-secondary {
+  background: transparent;
+  border: 1px solid var(--phoenix-border-strong);
+  color: #fff;
+  text-shadow: none;
+}
+.phoenix-btn-secondary:hover { background: rgba(255,255,255,0.06); }
+
+@media (prefers-reduced-motion: reduce) {
+  .phoenix-spinner { animation: none; }
+}
+
+/* ============================================ */
+/* NEW COMPONENTS — Phoenix neon system          */
+/* ============================================ */
+
+/* --- Card extras --- */
+.phoenix-card-image { display:flex; align-items:center; justify-content:center; min-height:10rem; background:linear-gradient(135deg, rgba(255,77,79,.2), rgba(255,170,29,.2)); }
+.phoenix-card-title { margin:0 0 .5rem; font-weight:700; color:#fff; font-size:1.1rem; }
+.phoenix-card-description { margin:0 0 1rem; color:var(--phoenix-text-soft); font-size:.9rem; line-height:1.6; }
+.phoenix-card-cta { width:100%; }
+
+/* --- Grid --- */
+.phoenix-grid { display:grid; grid-template-columns:1fr; gap:1.5rem; }
+@media (min-width:768px){
+  .phoenix-grid-2 { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .phoenix-grid-3 { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .phoenix-grid-4 { grid-template-columns:repeat(2,minmax(0,1fr)); }
+}
+@media (min-width:1024px){
+  .phoenix-grid-3 { grid-template-columns:repeat(3,minmax(0,1fr)); }
+  .phoenix-grid-4 { grid-template-columns:repeat(4,minmax(0,1fr)); }
+}
+.phoenix-grid-item { background:var(--phoenix-bg-card); border:1px solid var(--phoenix-border); border-radius:1rem; padding:1.5rem; transition:border-color .2s ease, transform .2s ease; }
+.phoenix-grid-item:hover { border-color:rgba(255,77,79,.45); transform:translateY(-2px); }
+.phoenix-grid-icon { width:3rem; height:3rem; border-radius:.75rem; margin-bottom:1rem; display:flex; align-items:center; justify-content:center; color:#fff; font-weight:700; background:linear-gradient(135deg,#FF4D4F,#FFAA1D); box-shadow:0 0 16px rgba(255,77,79,.4); }
+.phoenix-grid-title { margin:0 0 .5rem; font-weight:600; color:#fff; }
+.phoenix-grid-description { margin:0; color:var(--phoenix-text-soft); font-size:.9rem; }
+
+/* --- Field wrapper --- */
+.phoenix-field { display:flex; flex-direction:column; gap:.35rem; margin-bottom:1rem; }
+
+/* --- Switch --- */
+.phoenix-switch { display:inline-flex; align-items:center; gap:.6rem; background:none; border:0; cursor:pointer; padding:0; color:#fff; }
+.phoenix-switch:disabled { opacity:.5; cursor:not-allowed; }
+.phoenix-switch-track { width:2.75rem; height:1.5rem; border-radius:999px; background:#222; border:1px solid var(--phoenix-border-strong); position:relative; transition:all .2s ease; }
+.phoenix-switch-thumb { position:absolute; top:2px; left:2px; width:1.15rem; height:1.15rem; border-radius:50%; background:#fff; transition:all .2s ease; }
+.phoenix-switch.is-on .phoenix-switch-thumb { left:calc(100% - 1.3rem); }
+.phoenix-switch-phoenix.is-on .phoenix-switch-track { background:linear-gradient(90deg,#FF4D4F,#FFAA1D); box-shadow:0 0 12px rgba(255,77,79,.6); border-color:transparent; }
+.phoenix-switch-cyan.is-on    .phoenix-switch-track { background:hsl(190 100% 55%); box-shadow:0 0 12px hsl(190 100% 55% / .6); border-color:transparent; }
+.phoenix-switch-purple.is-on  .phoenix-switch-track { background:hsl(270 91% 65%); box-shadow:0 0 12px hsl(270 91% 65% / .6); border-color:transparent; }
+.phoenix-switch-green.is-on   .phoenix-switch-track { background:hsl(142 76% 45%); box-shadow:0 0 12px hsl(142 76% 45% / .6); border-color:transparent; }
+
+/* --- Spinner ring --- */
+.phoenix-spinner-ring { display:inline-block; border-radius:50%; border:3px solid rgba(255,255,255,.15); border-top-color:#FF4D4F; animation:phoenix-spin .7s linear infinite; }
+.phoenix-spinner-sm { width:1rem; height:1rem; border-width:2px; }
+.phoenix-spinner-md { width:1.75rem; height:1.75rem; }
+.phoenix-spinner-lg { width:2.75rem; height:2.75rem; border-width:4px; }
+.phoenix-spinner-phoenix { border-top-color:#FF4D4F; box-shadow:0 0 12px rgba(255,77,79,.5); }
+.phoenix-spinner-cyan    { border-top-color:hsl(190 100% 55%); box-shadow:0 0 12px hsl(190 100% 55% / .5); }
+.phoenix-spinner-purple  { border-top-color:hsl(270 91% 65%); box-shadow:0 0 12px hsl(270 91% 65% / .5); }
+.phoenix-spinner-green   { border-top-color:hsl(142 76% 45%); box-shadow:0 0 12px hsl(142 76% 45% / .5); }
+
+/* --- Alert --- */
+.phoenix-alert { border-radius:.85rem; padding:1rem 1.1rem; border:1px solid; margin-bottom:1rem; }
+.phoenix-alert-title { font-weight:700; margin-bottom:.25rem; }
+.phoenix-alert-body { font-size:.92rem; line-height:1.55; color:var(--phoenix-text-soft); }
+.phoenix-alert-info    { background:rgba(0,170,255,.08); border-color:rgba(0,170,255,.35); color:#7fd3ff; }
+.phoenix-alert-success { background:rgba(16,185,129,.08); border-color:rgba(16,185,129,.35); color:#6ee7b7; }
+.phoenix-alert-warning { background:rgba(255,170,29,.08); border-color:rgba(255,170,29,.35); color:#ffcf7a; }
+.phoenix-alert-error   { background:rgba(255,77,79,.08); border-color:rgba(255,77,79,.4); color:#ff9a9b; }
+
+/* --- Modal --- */
+.phoenix-modal-overlay { position:fixed; inset:0; z-index:1000; background:rgba(0,0,0,.75); backdrop-filter:blur(6px); display:flex; align-items:center; justify-content:center; padding:1rem; animation:phoenix-fade .2s ease; }
+.phoenix-modal { position:relative; width:100%; max-width:32rem; background:var(--phoenix-bg-soft); border:1px solid var(--phoenix-border-strong); border-radius:1.25rem; padding:1.75rem; box-shadow:0 0 40px rgba(138,0,255,.35), 0 20px 60px rgba(0,0,0,.5); animation:phoenix-pop .2s ease; }
+.phoenix-modal-close { position:absolute; top:1rem; right:1rem; background:none; border:0; color:#aaa; font-size:1.6rem; line-height:1; cursor:pointer; transition:color .2s ease; }
+.phoenix-modal-close:hover { color:#fff; }
+.phoenix-modal-title { margin:0 0 1rem; font-size:1.3rem; font-weight:700; color:#fff; }
+.phoenix-modal-body { color:var(--phoenix-text-soft); line-height:1.6; }
+.phoenix-modal-footer { display:flex; justify-content:flex-end; gap:.75rem; margin-top:1.5rem; }
+@keyframes phoenix-fade { from{opacity:0} to{opacity:1} }
+@keyframes phoenix-pop { from{opacity:0; transform:scale(.95)} to{opacity:1; transform:scale(1)} }
+
+/* --- Tooltip --- */
+.phoenix-tooltip { position:relative; display:inline-flex; }
+.phoenix-tooltip-bubble { position:absolute; z-index:100; padding:.4rem .65rem; border-radius:.5rem; background:#000; color:#fff; font-size:.78rem; white-space:nowrap; opacity:0; pointer-events:none; transition:opacity .15s ease; border:1px solid rgba(255,77,79,.4); box-shadow:0 0 12px rgba(255,77,79,.4); }
+.phoenix-tooltip:hover .phoenix-tooltip-bubble { opacity:1; }
+.phoenix-tooltip-top    .phoenix-tooltip-bubble { bottom:100%; left:50%; transform:translateX(-50%); margin-bottom:.4rem; }
+.phoenix-tooltip-bottom .phoenix-tooltip-bubble { top:100%; left:50%; transform:translateX(-50%); margin-top:.4rem; }
+.phoenix-tooltip-left   .phoenix-tooltip-bubble { right:100%; top:50%; transform:translateY(-50%); margin-right:.4rem; }
+.phoenix-tooltip-right  .phoenix-tooltip-bubble { left:100%; top:50%; transform:translateY(-50%); margin-left:.4rem; }
+
+/* --- Progress --- */
+.phoenix-progress { display:flex; align-items:center; gap:.75rem; }
+.phoenix-progress-track { flex:1; height:.6rem; border-radius:999px; background:#1a1a1a; border:1px solid var(--phoenix-border); overflow:hidden; }
+.phoenix-progress-bar { height:100%; border-radius:999px; transition:width .35s ease; }
+.phoenix-progress-phoenix { background:linear-gradient(90deg,#FF4D4F,#FFAA1D); box-shadow:0 0 10px rgba(255,77,79,.6); }
+.phoenix-progress-cyan    { background:hsl(190 100% 55%); box-shadow:0 0 10px hsl(190 100% 55% / .6); }
+.phoenix-progress-purple  { background:hsl(270 91% 65%); box-shadow:0 0 10px hsl(270 91% 65% / .6); }
+.phoenix-progress-green   { background:hsl(142 76% 45%); box-shadow:0 0 10px hsl(142 76% 45% / .6); }
+.phoenix-progress-label { font-size:.82rem; color:var(--phoenix-text-soft); min-width:2.5rem; text-align:right; }
+
+/* --- Tabs --- */
+.phoenix-tabs-list { display:flex; gap:.25rem; border-bottom:1px solid var(--phoenix-border); margin-bottom:1.25rem; }
+.phoenix-tab { background:none; border:0; padding:.65rem 1rem; color:var(--phoenix-text-muted); font-weight:600; cursor:pointer; border-bottom:2px solid transparent; transition:all .2s ease; }
+.phoenix-tab:hover { color:#fff; }
+.phoenix-tab.is-active { color:#fff; }
+.phoenix-tabs-phoenix .phoenix-tab.is-active { border-bottom-color:#FF4D4F; text-shadow:0 0 8px rgba(255,77,79,.6); }
+.phoenix-tabs-cyan    .phoenix-tab.is-active { border-bottom-color:hsl(190 100% 55%); text-shadow:0 0 8px hsl(190 100% 55% / .6); }
+.phoenix-tabs-purple  .phoenix-tab.is-active { border-bottom-color:hsl(270 91% 65%); text-shadow:0 0 8px hsl(270 91% 65% / .6); }
+.phoenix-tabs-green   .phoenix-tab.is-active { border-bottom-color:hsl(142 76% 45%); text-shadow:0 0 8px hsl(142 76% 45% / .6); }
+
+/* --- Accordion --- */
+.phoenix-accordion { border:1px solid var(--phoenix-border); border-radius:.85rem; overflow:hidden; }
+.phoenix-accordion-item { border-bottom:1px solid var(--phoenix-border); }
+.phoenix-accordion-item:last-child { border-bottom:0; }
+.phoenix-accordion-trigger { width:100%; display:flex; align-items:center; justify-content:space-between; padding:1rem 1.1rem; background:none; border:0; color:#fff; font-weight:600; cursor:pointer; transition:background .2s ease; }
+.phoenix-accordion-trigger:hover { background:rgba(255,255,255,.03); }
+.phoenix-accordion-chevron { transition:transform .2s ease; color:var(--phoenix-text-muted); }
+.phoenix-accordion-item.is-open .phoenix-accordion-chevron { transform:rotate(180deg); }
+.phoenix-accordion-content { padding:0 1.1rem 1.1rem; color:var(--phoenix-text-soft); line-height:1.6; }
+
+/* --- Skeleton --- */
+.phoenix-skeleton { display:block; background:linear-gradient(90deg, #161616 25%, #222 50%, #161616 75%); background-size:200% 100%; animation:phoenix-shimmer 1.4s ease infinite; }
+@keyframes phoenix-shimmer { from{background-position:200% 0} to{background-position:-200% 0} }
+
+/* reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .phoenix-spinner-ring, .phoenix-skeleton, .phoenix-modal, .phoenix-modal-overlay { animation:none; }
 }
