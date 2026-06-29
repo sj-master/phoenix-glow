@@ -1,32 +1,43 @@
 {
   "name": "phoenix-glow",
   "version": "1.0.0",
-  "description": "Phoenix Glow UI Kit — a multi-color neon CSS system with animated glows, buttons, navbar, cards, and form primitives.",
-  "author": "Skyler J. Jones",
+  "description": "Phoenix Glow UI Kit — a multi-color neon CSS system plus matching React components (animated glows, buttons, navbar, cards, badges, avatars, forms).",
+  "author": "Skyler J. Jones (sj-master)",
   "license": "MIT",
   "type": "module",
-  "main": "phoenix-glow.css",
-  "style": "phoenix-glow.css",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "style": "./dist/phoenix-glow.css",
   "exports": {
-    ".": "./phoenix-glow.css",
-    "./css": "./phoenix-glow.css"
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
+    },
+    "./css": "./dist/phoenix-glow.css",
+    "./styles.css": "./dist/phoenix-glow.css",
+    "./package.json": "./package.json"
   },
-  "files": [
-    "phoenix-glow.css",
-    "LICENSE",
-    "README.md"
+  "sideEffects": [
+    "**/*.css"
   ],
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "prepublishOnly": "npm run build"
+  },
   "keywords": [
-    "css",
-    "ui-kit",
-    "neon",
-    "glow",
-    "phoenix",
-    "phx",
-    "components",
-    "dark-theme",
-    "buttons",
-    "animations"
+    "css", "ui-kit", "react", "components", "neon", "glow",
+    "phoenix", "phx", "dark-theme", "buttons", "animations", "design-system"
   ],
   "homepage": "https://github.com/sj-master/phoenix-glow#readme",
   "repository": {
@@ -36,9 +47,24 @@
   "bugs": {
     "url": "https://github.com/sj-master/phoenix-glow/issues"
   },
-  "sideEffects": [
-    "*.css"
-  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "peerDependencies": {
+    "react": ">=18",
+    "react-dom": ">=18"
+  },
+  "peerDependenciesMeta": {
+    "react": { "optional": true },
+    "react-dom": { "optional": true }
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.0",
+    "react": "^18.3.0",
+    "react-dom": "^18.3.0",
+    "tsup": "^8.2.0",
+    "typescript": "^5.5.0"
+  },
   "publishConfig": {
     "access": "public"
   }

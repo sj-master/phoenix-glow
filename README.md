@@ -1,8 +1,8 @@
-# Phoenix Glow
+# 🐦‍🔥 Phoenix Glow
 
-A multi-color neon CSS kit: animated glow effects, gradient text, buttons, a sticky navbar, cards, forms, and standalone neon primitives. Pure CSS, no build step, no dependencies.
+A multi-color neon UI kit: pure-CSS glow effects, gradient text, layout, and forms — **plus 16 matching React components**. Use the CSS on its own, or use the components (which use the same CSS). No Tailwind, no Radix, no external UI dependencies — just React.
 
-© Skyler J. Jones · MIT licensed
+© Skyler J. Jones ([sj-master](https://github.com/sj-master)) · MIT licensed
 
 ---
 
@@ -12,133 +12,73 @@ A multi-color neon CSS kit: animated glow effects, gradient text, buttons, a sti
 npm install phoenix-glow
 ```
 
-## Use it
-
-Import the stylesheet once at the entry point of your app.
-
-**Bundlers (Vite, webpack, etc.):**
-
-```js
-import "phoenix-glow";
-// or be explicit:
-import "phoenix-glow/css";
-```
-
-**Plain HTML** (point at the file in `node_modules`, or copy it into your assets):
-
-```html
-<link rel="stylesheet" href="node_modules/phoenix-glow/phoenix-glow.css" />
-```
-
-Then add the classes to your markup:
-
-```html
-<button class="phoenix-btn phoenix-btn-phoenix">Launch</button>
-<div class="phoenix-card phoenix-glow-purple">
-  <div class="phoenix-card-inner">Glowing panel</div>
-</div>
-```
+React is optional — only needed if you use the components.
 
 ---
 
-## Two namespaces
+## Pure CSS
 
-The kit ships two independent systems that use different palettes. Mix or use either alone.
+```js
+import "phoenix-glow/css";
+```
 
-| Prefix       | Base background | Best for                                            |
-| ------------ | --------------- | --------------------------------------------------- |
-| `.phoenix-*` | `#0a0a0a`       | Full layout + component system (pages, navbar, hero)|
-| `.phx-*`     | `#080E1F`       | Drop-in neon button / card primitives               |
+```html
+<button class="phoenix-btn phoenix-btn-phoenix">Launch</button>
+<div class="phoenix-card phoenix-glow-purple"><div class="phoenix-card-inner">Glowing panel</div></div>
+```
 
-All colors live in CSS custom properties on `:root`, so you can retheme by overriding them:
+## React components
 
-```css
-:root {
-  --phoenix-pink: 320 100% 70%;  /* HSL channels, used as hsl(var(--x) / alpha) */
-  --phx-cyan: #2ad8ff;           /* plain hex */
+```jsx
+import { Button, Card, Modal, Tabs, Switch, Alert } from "phoenix-glow";
+import "phoenix-glow/css";
+
+function App() {
+  const [open, setOpen] = React.useState(false);
+  return (
+    <Card title="Phoenix" description="A neon UI kit that glows." glow="purple">
+      <Switch label="Neon mode" defaultChecked color="cyan" />
+      <Button variant="phoenix" onClick={() => setOpen(true)}>Open modal</Button>
+      <Modal open={open} onClose={() => setOpen(false)} title="Hello">
+        <Alert variant="success" title="Nice">It works.</Alert>
+      </Modal>
+    </Card>
+  );
 }
 ```
 
 ---
 
-## Glow effects
+## Components (16)
 
-Six animated neon pulses. Add a glow class to any element with a border-radius and background:
+| Component | Purpose | Key props |
+|-----------|---------|-----------|
+| `Button` | Solid neon button | `variant`, `isLoading` |
+| `GlowButton` | Pulsing animated button | `variant` |
+| `Badge` | Status pill | `variant`, `size` |
+| `Avatar` | Image or initials avatar | `src`, `initials`, `size`, `gradient` |
+| `Card` | Content surface w/ optional glow | `title`, `description`, `image`, `glow`, `action` |
+| `GridSection` | Responsive feature grid | `items`, `columns` |
+| `Alert` | Inline callout banner | `variant`, `title` |
+| `Spinner` | Neon loading ring | `size`, `color` |
+| `Skeleton` | Shimmer loading placeholder | `width`, `height`, `radius` |
+| `Progress` | Neon progress bar | `value`, `color`, `showLabel` |
+| `Modal` | Dialog with backdrop + ESC close | `open`, `onClose`, `title`, `footer` |
+| `Tooltip` | Hover tooltip (4 sides) | `content`, `side` |
+| `Tabs` | Tab switcher | `items`, `defaultIndex`, `color` |
+| `Accordion` | Collapsible sections | `items`, `allowMultiple` |
+| `Input` | Text field w/ label + help | `label`, `help`, `status` |
+| `Switch` | Neon toggle | `checked`, `onChange`, `color`, `label` |
 
-```html
-<div class="phoenix-card phoenix-glow-cyan">…</div>
-```
+All components accept native HTML attributes and respect `prefers-reduced-motion`.
 
-`phoenix-glow-orange` · `phoenix-glow-pink` · `phoenix-glow-purple` · `phoenix-glow-blue` · `phoenix-glow-cyan` · `phoenix-glow-green`
-
-**Text effects:**
-
-- `phoenix-gradient-text` — six-color gradient clipped to the text
-- `phoenix-title-glow` — static neon text-shadow
-- `phoenix-title-glow-animated` — add alongside `phoenix-title-glow` for a pulsing title
-
-```html
-<h1 class="phoenix-title-xl phoenix-gradient-text">Phoenix</h1>
-```
-
-All animations are disabled automatically under `prefers-reduced-motion: reduce`.
-
----
-
-## Class reference
-
-**Layout** — `phoenix-page`, `phoenix-container`, `phoenix-section`, `phoenix-section-tight`, `phoenix-center`, `phoenix-grid-2`, `phoenix-grid-3`
-
-**Typography** — `phoenix-kicker`, `phoenix-title-xl`, `phoenix-title-lg`, `phoenix-title-md`, `phoenix-copy-lg`, `phoenix-copy`, `phoenix-copy-sm`
-
-**Buttons** — `phoenix-btn` (base) with a color: `phoenix-btn-phoenix`, `phoenix-btn-purple`, `phoenix-btn-blue`, `phoenix-btn-green`, `phoenix-btn-outline`
-
-**Navbar** — `phoenix-navbar`, `phoenix-navbar-container`, `phoenix-navbar-row`, `phoenix-navbar-brand`, `phoenix-navbar-logo`, `phoenix-navbar-brand-text`, `phoenix-navbar-desktop`, `phoenix-navbar-link`, `phoenix-navbar-toggle`, `phoenix-navbar-mobile`, `phoenix-navbar-link-mobile`
-
-**Surfaces** — `phoenix-card`, `phoenix-card-inner`, `phoenix-panel`, `phoenix-soft-box`
-
-**Hero / preview** — `phoenix-hero`, `phoenix-hero-actions`, `phoenix-preview-window`, `phoenix-preview-dots`, `phoenix-dot` (+ `phoenix-dot-red` / `-yellow` / `-green`)
-
-**Forms** — `phoenix-input`, `phoenix-select`, `phoenix-label`, `phoenix-help`, `phoenix-help-error`, `phoenix-help-success`
-
-**Doc helpers** — `phoenix-doc-toolbar`, `phoenix-doc-section`, `phoenix-doc-header`, `phoenix-copy-btn`
-
-**phx primitives** — `phx-btn` (+ `phx-btn--cyan`, `phx-btn--purple`), `phx-card`
+Color options throughout: `phoenix` · `cyan` · `purple` · `green` (and glows add `orange` · `pink` · `blue`).
 
 ---
 
-## Example layout
+## CSS classes
 
-```html
-<div class="phoenix-page">
-  <nav class="phoenix-navbar">
-    <div class="phoenix-navbar-container">
-      <div class="phoenix-navbar-row">
-        <div class="phoenix-navbar-brand">
-          <div class="phoenix-navbar-logo"></div>
-          <span class="phoenix-navbar-brand-text">Phoenix</span>
-        </div>
-        <div class="phoenix-navbar-desktop">
-          <a class="phoenix-navbar-link" href="#">Docs</a>
-          <a class="phoenix-navbar-link" href="#">Pricing</a>
-        </div>
-      </div>
-    </div>
-  </nav>
-
-  <section class="phoenix-hero phoenix-center">
-    <div class="phoenix-container">
-      <span class="phoenix-kicker">New</span>
-      <h1 class="phoenix-title-xl phoenix-gradient-text">Phoenix Glow</h1>
-      <p class="phoenix-copy-lg">A neon UI kit that actually glows.</p>
-      <div class="phoenix-hero-actions">
-        <button class="phoenix-btn phoenix-btn-phoenix">Get started</button>
-        <button class="phoenix-btn phoenix-btn-outline">View on GitHub</button>
-      </div>
-    </div>
-  </section>
-</div>
-```
+Glows `phoenix-glow-{orange|pink|purple|blue|cyan|green}` · text `phoenix-gradient-text`, `phoenix-title-glow` · layout `phoenix-page/-container/-section/-grid-2/-3` · buttons `phoenix-btn` + `-phoenix/-purple/-blue/-green/-outline` · navbar `phoenix-navbar*` · forms `phoenix-input/-select/-label`. Retheme via the `:root` custom properties.
 
 ---
 
